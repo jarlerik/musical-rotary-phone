@@ -1,10 +1,14 @@
 <script lang="ts">
     import type { BookType } from "../types/bookType";
 
-    export let book: BookType = { title: '', coverImage: ''};
+    export let book: BookType = { id: '', title: '', coverImage: ''};
+
+    const clickHandler = (id: string) => () => {
+        console.log('clicked:', id);
+    }
 </script>
 
-<div>
+<div on:click={clickHandler(book.id)}>
     <h3>{book.title}</h3>
     <img class="coverImage" src="{book.coverImage}" alt={book.title} />
 </div>

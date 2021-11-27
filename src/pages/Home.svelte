@@ -29,6 +29,7 @@
 
         color: $header-color;
         text-transform: uppercase;
+        margin-left: 2rem;
         
     }
     h1 {
@@ -36,6 +37,7 @@
         font-weight: 100;
     }
     h2 {
+        margin-left: 2rem;
         font-size: 2em;
         font-weight: 300;
         color: #a8a8a8;

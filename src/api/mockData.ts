@@ -1,28 +1,28 @@
 
 import faker from 'faker';
+import type { BookType } from '../types/bookType';
 
-export interface BookType {
-    coverImage?: string;
-    title?: string;
+
+const getData = (count: number, type: string, imageSize: string) => {
+    const books = Array.from(Array(count)).map((_, index) => {
+        const id = `${type}-${index}`;
+	return { id, coverImage: `https://via.placeholder.com/${imageSize}?text=${type}`, title: `${faker.random.words()}`};
+    });
+    return books;
 }
 
+
 export const getBooks = ():Array<BookType> => {
-    const books = Array.from(Array(9)).map((_, index) => {
-	return { coverImage: 'https://via.placeholder.com/200x320?text=BOOK', title: `#${index + 1} ${faker.random.words()}`};
-    });
+    const books = getData(9, 'BOOK', '200x320');
     return books;
 }
 
 export const getAudioBooks = ():Array<BookType> => {
-    const books = Array.from(Array(4)).map((_, index) => {
-	return { coverImage: 'https://via.placeholder.com/200x200?text=AUDIOBOOK', title: `#${index + 1} ${faker.random.words()}`};
-    });
-    return books;
+    const audio = getData(4, 'AUDIO', '200x200');
+    return audio;
 }
 
 export const getPodcasts = ():Array<BookType> => {
-    const books = Array.from(Array(4)).map((_, index) => {
-	return { coverImage: 'https://via.placeholder.com/200x200?text=PODCAST', title: `#${index + 1} ${faker.random.words()}`};
-    });
-    return books;
+    const podcasts = getData(4, 'PODCAST', '200x200');
+    return podcasts;
 }

@@ -2,7 +2,7 @@
     import type { BookType } from "../types/bookType";
 import DefaultBook from "./DefaultBook.svelte";
 
-    export let audioBook: BookType = { title: '', coverImage: ''};
+    export let audioBook: BookType = { id: '', title: '', coverImage: ''};
 </script>
 
 <div class="audio">
