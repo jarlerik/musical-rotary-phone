@@ -3,8 +3,10 @@
     export let path: string;
     // TODO: what type is this?
     export let component: any;
-
-    const currentPath = location.pathname;
+    import { routePath } from './store';
+    
+    let currentPath;
+    routePath.subscribe((value) => currentPath = value);
 </script>
 
 {#if currentPath === path}

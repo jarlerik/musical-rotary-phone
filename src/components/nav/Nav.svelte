@@ -1,22 +1,22 @@
 <script lang="ts">
-    const handleClick = (url: string) =>  () => {
-        console.log('link clicked', url);
-        const state = {};
-        const title = "";
-        window.history.pushState(state, title, url);
-    }
+    import { navigate } from '../../route/store'
+    import { BOOKS, HOME, AUDIOS, PODCASTS, ABOUT } from '../../route/routePaths';
+    const to = (url: string) => () => navigate(url);
+
 </script>
 <div>
     <nav>
         <ul>
-            <li><a on:click|preventDefault={handleClick("/")} href="/">Home</a></li>
-            <li><a on:click|preventDefault={handleClick("/books")} href="/books">Books</a></li>
-            <li><a on:click|preventDefault={handleClick("/audio-books")} href="/audio-books">Audio books</a></li>
-            <li><a on:click|preventDefault={handleClick("/podcasts")} href="/podcasts">Podcasts</a></li>
-            <li><a on:click|preventDefault={handleClick("/about")} href="/about">About</a></li>
+            <li><a on:click|preventDefault={to(HOME)} href="/">Home</a></li>
+            <li><a on:click|preventDefault={to(BOOKS)} href="/books">Books</a></li>
+            <li><a on:click|preventDefault={to(AUDIOS)} href="/audio-books">Audio books</a></li>
+            <li><a on:click|preventDefault={to(PODCASTS)} href="/podcasts">Podcasts</a></li>
+            <li><a on:click|preventDefault={to(ABOUT)} href="/about">About</a></li>
         </ul>
     </nav>
 </div>
+
+
 
 <style lang="scss">
     nav {
