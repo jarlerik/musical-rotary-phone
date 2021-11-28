@@ -6,14 +6,19 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear -s",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
+    "@testing-library/jest-dom": "^5.15.1",
     "@tsconfig/svelte": "^2.0.0",
     "@types/faker": "^5.5.9",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.5.0",
     "rollup": "^2.3.4",
@@ -24,12 +29,32 @@
     "sass": "^1.43.4",
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
+    "svelte-jester": "^2.1.5",
     "svelte-preprocess": "^4.0.0",
+    "ts-jest": "^27.0.7",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "@testing-library/svelte": "^3.0.3",
     "faker": "^5.5.3",
     "sirv-cli": "^1.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.svelte$": [
+        "svelte-jester",
+        {
+          "preprocess": true
+        }
+      ],
+      "^.+\\.ts$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "svelte"
+    ],
+    "testEnvironment": "jsdom"
   }
 }
