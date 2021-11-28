@@ -1,7 +1,8 @@
 <script lang="ts">
     import type { BookType } from '../types/bookType';
     import AudioBook from '../components/AudioBook.svelte';
-	export let audioBooks: Array<BookType>;
+    import { getAudioBooks } from '../api/mockData';
+	export let audioBooks: Array<BookType> = getAudioBooks();
 </script>
 <div class="audioBooks">
     <h3>Audio books</h3>

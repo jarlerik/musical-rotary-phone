@@ -1,17 +1,13 @@
 <script lang="ts">
+    import { to } from "../route/store";
     import type { BookType } from "../types/bookType";
-
     export let book: BookType = { id: '', title: '', coverImage: ''};
-
-    const clickHandler = (id: string) => () => {
-        console.log('clicked:', id);
-    }
 </script>
 
-<div on:click={clickHandler(book.id)}>
+<a href={`/books/${book.id}`} on:click|preventDefault={to(`/books/${book.id}`)}>
     <h3>{book.title}</h3>
     <img class="coverImage" src="{book.coverImage}" alt={book.title} />
-</div>
+</a>
 
 <style lang="scss">
     $header-color: #d0785b;

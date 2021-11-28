@@ -5,7 +5,7 @@ import type { BookType } from '../types/bookType';
 
 const getData = (count: number, type: string, imageSize: string) => {
     const books = Array.from(Array(count)).map((_, index) => {
-        const id = `${type}-${index}`;
+        const id = `${index}`;
 	return { id, coverImage: `https://via.placeholder.com/${imageSize}?text=${type}`, title: `${faker.random.words()}`};
     });
     return books;

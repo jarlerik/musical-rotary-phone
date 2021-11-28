@@ -1,7 +1,8 @@
 <script lang="ts">
     import type { BookType } from '../types/bookType';
     import Podcast from '../components/Podcast.svelte';
-	export let podcasts: Array<BookType>;
+    import { getPodcasts } from '../api/mockData';
+	export let podcasts: Array<BookType> = getPodcasts();
 </script>
 <div class="podcasts">
     <h3>Podcasts</h3>

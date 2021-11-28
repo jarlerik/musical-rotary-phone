@@ -1,13 +1,8 @@
 
 <script lang="ts">
-    import { getBooks, getAudioBooks, getPodcasts } from '../api/mockData';
 	import Books from '../components/Books.svelte';
     import AudioBooks from '../components/AudioBooks.svelte';
     import Podcasts from '../components/Podcasts.svelte';
-
-    export let books = getBooks();
-    export let audioBooks = getAudioBooks();
-    export let podcasts = getPodcasts();
 </script>
 
 <div>
@@ -16,9 +11,9 @@
     </header>
     <main>
         <h2>Is Your personal library where You can collect your favorite books, audio books and podcasts You'd like read or listen.</h2>
-        <Books {books} />
-        <AudioBooks {audioBooks} />
-        <Podcasts {podcasts} />
+        <Books />
+        <AudioBooks />
+        <Podcasts/>
     </main>
 </div>
 

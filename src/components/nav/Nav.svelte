@@ -1,7 +1,6 @@
 <script lang="ts">
-    import { navigate } from '../../route/store'
+    import { to } from '../../route/store'
     import { BOOKS, HOME, AUDIOS, PODCASTS, ABOUT } from '../../route/routePaths';
-    const to = (url: string) => () => navigate(url);
 
 </script>
 <div>
