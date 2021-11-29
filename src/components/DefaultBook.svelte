@@ -2,9 +2,10 @@
     import { to } from "../route/store";
     import type { BookType } from "../types/bookType";
     export let book: BookType = { id: '', title: '', coverImage: ''};
+    export let type = 'books';
 </script>
 
-<a href={`/books/${book.id}`} on:click|preventDefault={to(`/books/${book.id}`)}>
+<a href={`/${type}/${book.id}`} on:click|preventDefault={to(`/${type}/${book.id}`)}>
     <h3>{book.title}</h3>
     <img class="coverImage" src="{book.coverImage}" alt={book.title} />
 </a>

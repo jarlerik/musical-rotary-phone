@@ -6,7 +6,7 @@
 </script>
 
 <div class="podcast">
-    <DefaultBook book={podcast} />
+    <DefaultBook type="podcasts" book={podcast} />
 </div>
 
 <style lang="scss">

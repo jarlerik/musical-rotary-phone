@@ -6,7 +6,7 @@ import DefaultBook from "./DefaultBook.svelte";
 </script>
 
 <div class="audio">
-    <DefaultBook book={audioBook} />
+    <DefaultBook type="audio-books" book={audioBook} />
 </div>
 
 
