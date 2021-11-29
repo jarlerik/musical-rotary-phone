@@ -12,15 +12,15 @@ Currently on only routes like
   <Router>
 		<Route exact path="/podcasts" component={Podcasts} />
 		<Route path="/books" component={Books}>
-			<Route path={'/books/:id'} component={Book} />
+			<Route path={':bookId'} component={Book} />
 		</Route>
     </Router>
   ```
-
+- [ ] 404 not found route
 - [ ] SSR
   Obviously
 
-- [ ] Global styles
+- [ ] Global styles? (Now there are some styles duplicated in multiple components)
 
 
 # svelte app

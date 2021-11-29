@@ -17,7 +17,7 @@
 	<Router>
 		<Route exact path={HOME} component={Home} />
 		<Route path={BOOKS} component={Books}>
-			<Route path={'/books/1'} component={Book} />
+			<Route path={'/books/:bookId'} component={Book} />
 		</Route>
 
 		<Route path={AUDIOS} component={AudioBooks} />
