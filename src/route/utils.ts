@@ -4,7 +4,7 @@ export const pathMatches = (currentPath: string, path: string) => {
     return currentPathArr[1] === pathArr[1] && currentPathArr.length === pathArr.length;
 }
 
-export const params = (currentPath: string, path: string) => {
+export const getParams = (currentPath: string, path: string) => {
     const currentPathArr = currentPath.split("/");
     const pathArr = path.split("/");
 

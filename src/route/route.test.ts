@@ -1,4 +1,7 @@
-import { pathMatches, params } from './utils';
+import { pathMatches, getParams } from './utils';
+import Route from './Route.svelte';
+import { getByTestId, render } from '@testing-library/svelte';
+import TestComponent from '../test/TestComponent.svelte';
 
 describe('Routing components', () => {
 
@@ -30,16 +33,34 @@ describe('Routing components', () => {
         test('should collect first parameter', () => {
             const currentPath = "/books/1";
             const path = "/books/:bookId";
-            const paramsObject = params(currentPath, path);
+            const paramsObject = getParams(currentPath, path);
             expect(paramsObject['bookId']).toBe('1');
         });
 
-        test('should collect first and second parameter', () => {
+        test('should collect second parameter', () => {
             const currentPath = "/user/2/books/1";
             const path = "/user/:userId/books/:bookId";
-            const paramsObject = params(currentPath, path);
+            const paramsObject = getParams(currentPath, path);
             expect(paramsObject['bookId']).toBe('1');
-            expect(paramsObject['userId']).toBe('2');
+        });
+    });
+
+    describe('<Route>', () => {
+        test('should render child component if currentPath and path match', () => {
+            const result = render(Route, { props: { Component: TestComponent, path: '/' } });
+            const element = getByTestId(result.container, 'test-component');
+            expect(element.textContent).toContain('Test component');
+        });
+
+        test('should not render child component if currentPath and path do not match', () => {
+            const result = render(Route, { props: { Component: TestComponent, path: '/foo' } });
+            expect(() => getByTestId(result.container, 'test-component')).toThrow();
+        });
+
+        test('should call the loader function given as prop', () => {
+            const loader = jest.fn();
+            const result = render(Route, { props: { Component: TestComponent, path: '/', loader } });
+            expect(loader).toHaveBeenCalled();
         });
     });
 });

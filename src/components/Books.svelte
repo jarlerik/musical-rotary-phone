@@ -1,14 +1,13 @@
 <script lang="ts">
     import type { BookType } from '../types/bookType';
     import Book from '../components/Book.svelte';
-    import { getBooks } from '../api/mockData';
-	export let books: Array<BookType> = getBooks();
+	export let books: Array<BookType>;
 </script>
 <div class="books">
     <h3>Books</h3>
     
     {#each books as book}
-        <Book {book} />
+        <Book book={book} />
     {/each}
     <hr>
 </div>

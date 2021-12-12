@@ -3,6 +3,8 @@
 	import Books from '../components/Books.svelte';
     import AudioBooks from '../components/AudioBooks.svelte';
     import Podcasts from '../components/Podcasts.svelte';
+import type { BookType } from '../types/bookType';
+    let books: Array<BookType>;
 </script>
 
 <div>
@@ -11,7 +13,7 @@
     </header>
     <main>
         <h2>Is Your personal library where You can collect your favorite books, audio books and podcasts You'd like read or listen.</h2>
-        <Books />
+        <Books {books}/>
         <AudioBooks />
         <Podcasts/>
     </main>
